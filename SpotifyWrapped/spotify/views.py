@@ -1,9 +1,10 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
 from dotenv import load_dotenv
 load_dotenv()
+from backend.Songs import songs
 import os
 
 # Create your views here.
@@ -37,42 +38,7 @@ def home(request):
     request.session["access_token"] = access_token
 
     # Redirect the user to the top tracks page
-    return HttpResponseRedirect("/recent/")
+    return HttpResponseRedirect("/tracks/")
 
 def recent(request):
-    if request.method == 'GET':
-         # Get the access token from the session
-        access_token = request.session.get("access_token")
-        print('\n\n ACCESS TOKEN: ', access_token, '\n\n')
-
-        # Create a Spotipy client using the access token
-        sp = spotipy.Spotify(auth=access_token)
-
-        # Make the HTTP GET request to the Spotify API
-        response = sp.current_user_top_tracks(limit=3, offset=0, time_range="short_term")
-
-        # Extract the top tracks from the response
-        top_tracks = response["items"]
-
-         # Create a list of dictionaries representing the top tracks
-        tracks = []
-        for track in top_tracks:
-            track_info = {
-                "name": track["name"],
-                "artist": track["artists"][0]["name"],
-                "album": track["album"]["name"],
-            }
-            tracks.append(track_info)
-
-        # print tracks list to console
-        print("\n\n\n\nLIST OF TRACKS:",tracks)
-
-        # Return a JSON response containing the top tracks]
-        return render(request, 'spotify/recent.html', {'tracks':tracks})
-    else:
-        error = "An error has occurred"
-        return error
-
-
-
-        
+    return songs.getSongs(request)

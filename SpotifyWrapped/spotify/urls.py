@@ -4,5 +4,6 @@ from . import views
 urlpatterns = [
     path('home/', views.authorise),
     path('', views.home),
-    path('recent/', views.recent)
+    path('tracks/', views.recent),
+    path('song/filter/', views.recent)
 ]
