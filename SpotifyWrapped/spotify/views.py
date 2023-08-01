@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 import spotipy
+from backend.albums import album
 from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
 from dotenv import load_dotenv
 load_dotenv()
@@ -42,3 +43,8 @@ def home(request):
 
 def recent(request):
     return songs.getSongs(request)
+
+
+def albums(request):
+    return album.getAlbums(request)
+    

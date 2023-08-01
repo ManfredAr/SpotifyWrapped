@@ -5,5 +5,6 @@ urlpatterns = [
     path('home/', views.authorise),
     path('', views.home),
     path('tracks/', views.recent),
-    path('song/filter/', views.recent)
+    path('song/filter/', views.recent),
+    path('album/', views.albums),
 ]
