@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block style %} 
-<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/track.css' %}"> 
-<script src="{% static 'js/recent.js' %}"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/artist.css' %}"> 
+<script src="{% static 'js/album.js' %}"></script>
 {% endblock %}
 
 
 {% block content %}
     <div class="track">
-        <h1>Top songs</h1>
+        <h1>Top Artists</h1>
         <div class="form" id="search">
             <form method="POST">
                 {% csrf_token %}
@@ -33,11 +33,17 @@
         </div>
 
         <div id="tracks">
-            {% for i in tracks %}
+            {% for i in artists %}
                 <div class="track">
-                    <p class="h3">{{i.name}}</p>
-                    <p>By: {{i.artist}}</p>
-                    <p>Album: {{i.album}}</p>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{i.image}}" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{i.name}}</h5>
+                          <p class="card-text">
+                            <a href="{{i.url}}">Link to artist</a>
+                          </p>
+                        </div>
+                      </div>
                 </div>
             {% endfor %}
         </div>

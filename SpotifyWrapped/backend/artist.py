@@ -7,9 +7,10 @@ load_dotenv()
 import os
 
 
-class album:
+class artists:
 
-    def getAlbums(request):
+    @staticmethod
+    def getArtist(request):
          # Get the access token from the session
         access_token = request.session.get("access_token")
 
@@ -18,7 +19,7 @@ class album:
 
         if request.method == "GET":
             # Make the HTTP GET request to the Spotify API
-            response = sp.current_user_top_tracks(limit=30, offset=0, time_range="short_term")
+            response = sp.current_user_top_artists(limit=20, offset=0, time_range="long_term")
         elif request.method == "POST":
             time = request.POST.get("fil")
             amount = request.POST.get("quantity")
@@ -30,26 +31,26 @@ class album:
                 amount = 10
 
             # Make the HTTP GET request to the Spotify API
-            response = sp.current_user_top_tracks(limit=amount, offset=0, time_range=time)
+            response = sp.current_user_top_artists(limit=amount, offset=0, time_range=time)
         else: 
             return "error"
 
         # Extract the top tracks from the response
-        top_tracks = response["items"]
+        artists = response["items"]
 
          # Create a list of dictionaries representing the top tracks
-        tracks = []
-        for track in top_tracks:
-            track_info = {
-                "artist": track["artists"][0]["name"],
-                "image": track["album"]["images"][0]["url"],
-                "album": track["album"]["name"],
-                "release": track["album"]["release_date"],
-                "link": track["album"]["external_urls"]
+        singer = []
+        for artist in artists:
+            artist_info = {
+                "name": artist["name"],
+                "image": artist["images"][0]["url"],
+                "url":artist["external_urls"]
             }
-            tracks.append(track_info)
-            
+            singer.append(artist_info)
+        
+        print(singer)
+
         if request.method == "GET":
-            return render(request, 'spotify/album.html', {'tracks':tracks})
+            return render(request, 'spotify/artist.html', {'artists':singer})
         elif request.method == "POST":
-            return JsonResponse({'tracks': tracks});
+            return JsonResponse({'artists': singer});

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const formData = new FormData(event.target); // 'this' refers to the form element with ID 'search'
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', '/album/');
+        xhr.open('POST', '/artist/');
         xhr.setRequestHeader('X-CSRFToken', formData.get('csrfmiddlewaretoken'));
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {

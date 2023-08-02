@@ -2,10 +2,11 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 import spotipy
 from backend.albums import album
+from backend.Songs import songs
+from backend.artist import artists
 from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
 from dotenv import load_dotenv
 load_dotenv()
-from backend.Songs import songs
 import os
 
 # Create your views here.
@@ -44,7 +45,9 @@ def home(request):
 def recent(request):
     return songs.getSongs(request)
 
-
 def albums(request):
     return album.getAlbums(request)
+
+def artist(request):
+    return artists.getArtist(request)
     

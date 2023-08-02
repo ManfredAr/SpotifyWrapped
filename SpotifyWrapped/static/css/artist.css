@@ -26,6 +26,8 @@
     margin-top: 5px;
 }
 
-.track {
-    border-bottom-style: solid;
+#tracks {
+    display: flex;
+    flex-wrap: wrap; /* Wrap items to the next line when there's not enough space */
+    gap: 20px; /* Add spacing between cards */
 }

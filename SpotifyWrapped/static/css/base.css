@@ -45,6 +45,8 @@ ul {
 
 .wrapper {
     display: flex;
+        max-width: 1176px;
+
 }
 
 .content {
