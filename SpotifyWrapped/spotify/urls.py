@@ -7,5 +7,6 @@ urlpatterns = [
     path('tracks/', views.recent),
     path('song/filter/', views.recent),
     path('album/', views.albums),
-    path('artist/', views.artist)
+    path('artist/', views.artist),
+    path('genre/', views.genre)
 ]

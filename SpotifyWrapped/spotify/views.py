@@ -4,6 +4,7 @@ import spotipy
 from backend.albums import album
 from backend.Songs import songs
 from backend.artist import artists
+from backend.genre import genres
 from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
 from dotenv import load_dotenv
 load_dotenv()
@@ -50,4 +51,7 @@ def albums(request):
 
 def artist(request):
     return artists.getArtist(request)
+
+def genre(request):
+    return genres.getGenres(request)
     

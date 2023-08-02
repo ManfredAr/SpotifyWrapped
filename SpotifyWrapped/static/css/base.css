@@ -53,3 +53,7 @@ ul {
     margin-left: 40px;
     padding: 20px
 }
+
+body {
+    background-image: linear-gradient(to right, #a3ffbd , #42c12d);
+}
