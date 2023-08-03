@@ -119,6 +119,17 @@ USE_I18N = True
 USE_TZ = True
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': str(os.getenv('PASSWORD')),
+        'HOST': 'containers-us-west-85.railway.app',
+        'PORT': '5610',
+    }
+}
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
