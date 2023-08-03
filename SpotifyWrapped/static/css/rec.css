@@ -26,22 +26,11 @@
     margin-top: 5px;
 }
 
-#tracks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; 
+.track {
+    border-bottom-style: solid;
 }
 
 .track {
-    width: 910px
+  width: 700px;
 }
 
-p {
-  font-size: 20px;
-  font-weight: bold;
-  font-family:monospace ;
-}
-
-.genre {
-  text-align: center;
-}

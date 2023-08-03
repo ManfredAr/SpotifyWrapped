@@ -50,6 +50,10 @@ class artists:
         
 
         if request.method == "GET":
+            print(singer)
             return render(request, 'spotify/artist.html', {'artists':singer})
         elif request.method == "POST":
+            print(singer)
             return JsonResponse({'artists': singer});
+        else:
+            return artists

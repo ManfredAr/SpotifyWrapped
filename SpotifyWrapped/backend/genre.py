@@ -11,7 +11,7 @@ import os
 class genres:
 
     @staticmethod
-    def getGenres(request):
+    def getGenres(request, check):
          # Get the access token from the session
         access_token = request.session.get("access_token")
 
@@ -47,6 +47,8 @@ class genres:
                     genres[i] = 1
         
 
+        if check:
+            return Counter(genres).most_common(10)
 
         if request.method == "GET":
             top_genres = Counter(genres).most_common(10)

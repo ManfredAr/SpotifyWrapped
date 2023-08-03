@@ -32,10 +32,10 @@
             </form>
         </div>
 
-        <div id="genres">
+        <div class="genres" id="genres">
             {% for i, j in genres %}
                 <div class="genre">
-                    <h1>{{i}}</h1>
+                    <p>{{ forloop.counter }}. {{ i }}</p>
                 </div>
             {% endfor %}
         </div>

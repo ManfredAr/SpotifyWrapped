@@ -1,0 +1,26 @@
+{% extends 'spotify/base.html' %}
+{% load static %}
+
+{% block style %} 
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/rec.css' %}"> 
+<script src="{% static 'js/player.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+    <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
+    <div id="playlist_uri" data-playlist-uri="{{ playlist_uri }}"></div>
+    <div class="track">
+        <h1>Recommendations for you</h1>
+
+        <div id="tracks">
+            {% for i in songs %}
+                <div class="track">
+                    <p class="h3">{{i.name}}</p>
+                    <p>By: {{i.artist}}</p>
+                    <p>Album: {{i.album}}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

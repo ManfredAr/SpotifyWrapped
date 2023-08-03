@@ -5,6 +5,7 @@ from backend.albums import album
 from backend.Songs import songs
 from backend.artist import artists
 from backend.genre import genres
+from backend.recommendation import recommendations
 from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
 from dotenv import load_dotenv
 load_dotenv()
@@ -12,7 +13,7 @@ import os
 
 # Create your views here.
 def authorise(request):
-    scope = "user-read-private playlist-read-private playlist-modify-public user-top-read"
+    scope = "user-read-private playlist-read-private playlist-modify-private playlist-modify-public user-top-read"
 
     # Getting a spotify object
     sp = SpotifyOAuth(client_id=str(os.getenv('CLIENT_ID')), client_secret= str(os.getenv('CLIENT_SECRET')), redirect_uri=str(os.getenv('REDIRECT_URI')), scope=scope)
@@ -23,7 +24,7 @@ def authorise(request):
     return HttpResponseRedirect(url)
 
 def home(request):
-    scope = "user-read-private playlist-read-private playlist-modify-public user-top-read"
+    scope = "user-read-private playlist-read-private playlist-modify-private playlist-modify-public user-top-read"
         
     # Create a SpotifyOAuth object
     sp = SpotifyOAuth(client_id=str(os.getenv('CLIENT_ID')), client_secret= str(os.getenv('CLIENT_SECRET')), redirect_uri=str(os.getenv('REDIRECT_URI')), scope=scope)
@@ -53,5 +54,8 @@ def artist(request):
     return artists.getArtist(request)
 
 def genre(request):
-    return genres.getGenres(request)
+    return genres.getGenres(request, False)
+
+def recommendation(request):
+    return recommendations.getRecommendation(request)
     

@@ -31,3 +31,7 @@
     flex-wrap: wrap; /* Wrap items to the next line when there's not enough space */
     gap: 20px; /* Add spacing between cards */
 }
+
+.track {
+    width: 910px
+}
