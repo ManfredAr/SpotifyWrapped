@@ -1,0 +1,45 @@
+{% extends 'spotify/base.html' %}
+{% load static %}
+
+{% block style %} 
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/track.css' %}"> 
+<script src="{% static 'js/recent.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+    <div class="track">
+        <h1>Top songs</h1>
+        <div class="form" id="search">
+            <form method="POST">
+                {% csrf_token %}
+                    <div class="set">
+                      <div class="dropdown">
+                        <select id="search" name="fil" class="form-select form-select-lg" aria-label=".form-select-lg example">
+                            <option name="time" value="medium_term">6 months</option>
+                            <option name="time" value="long_term">All time</option>
+                            <option name="time" value="short_term">4 weeks</option>
+                        </select>
+                      </div>
+                      <div class="inp">
+                          <label for="quantity">Quantity (between 1 and 50):</label>
+                          <input type="number" id="quantity" name="quantity" min="1" max="50">
+                      </div>
+                      <div class="send">
+                          <button type="submit" class="btn btn-success"> Search </button>
+                      </div>
+                    </div>
+            </form>
+        </div>
+
+        <div id="tracks">
+            {% for i in tracks %}
+                <div class="track">
+                    <p class="h3">{{i.name}}</p>
+                    <p>By: {{i.artist}}</p>
+                    <p>Album: {{i.album}}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
