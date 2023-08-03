@@ -1,0 +1,47 @@
+.set {
+    display: flex;
+    border-width: thin;
+    border-color: black;
+    border-style: solid;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.set {
+    display: flex;
+    border-width: thin;
+    border-color: black;
+    border-style: solid;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.inp, .send {
+    margin-left: 100px;
+}
+
+.inp {
+    margin-top: 5px;
+}
+
+#tracks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.track {
+    width: 910px
+}
+
+p {
+  font-size: 20px;
+  font-weight: bold;
+  font-family:monospace ;
+}
+
+.genre {
+  text-align: center;
+}
