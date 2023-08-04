@@ -56,15 +56,36 @@
         </div>
         <div class="main">
             <div class="content">
+                {% block header %}
+                {% endblock %}
+                <div class="form" id="search">
+                    <form method="POST">
+                        {% csrf_token %}
+                            <div class="set">
+                              <div class="dropdown">
+                                <select id="search" name="fil" class="form-select form-select-lg" aria-label=".form-select-lg example">
+                                    <option name="time" value="medium_term">6 months</option>
+                                    <option name="time" value="long_term">All time</option>
+                                    <option name="time" value="short_term">1 month</option>
+                                </select>
+                              </div>
+                              <div class="inp">
+                                  <label for="quantity">No. results:</label>
+                                  <input type="number" id="quantity" name="quantity" min="1" max="50">
+                              </div>
+                              <div class="send">
+                                  <button type="submit" class="btn btn-success"> Search </button>
+                              </div>
+                            </div>
+                    </form>
+                </div>
                 {% block content %}
                 {% endblock %}
             </div>
     
-            <div class="play">
-                <div class="player">
-                    <div id="embed-iframe">
-    
-                    </div>
+            <div class="player">
+                <div id="embed-iframe">
+
                 </div>
             </div>
         </div>

@@ -1,37 +1,9 @@
-.set {
-    display: flex;
-    border-width: thin;
-    border-color: black;
-    border-style: solid;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-.set {
-    display: flex;
-    border-width: thin;
-    border-color: black;
-    border-style: solid;
-    padding: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.inp, .send {
-    margin-left: 100px;
-}
-
 .inp {
     margin-top: 5px;
 }
 
-.track {
-    width: 910px;
-}
-
 #tracks {
     display: flex;
-    flex-wrap: wrap; /* Wrap items to the next line when there's not enough space */
-    gap: 20px; /* Add spacing between cards */
+    flex-wrap: wrap;
+    gap: 20px; 
 }

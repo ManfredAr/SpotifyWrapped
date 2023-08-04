@@ -6,13 +6,15 @@
 <script src="{% static 'js/player.js' %}"></script>
 {% endblock %}
 
+{% block header %}
+<h1>Recommendations for you</h1>
+{% endblock %}
 
 {% block content %}
     <div class="player-container">
         <script src="https://sdk.scdn.co/spotify-player.js" async></script>
         <div id="playlist_uri" data-playlist-uri="{{ playlist_uri }}"></div>
         <div class="track">
-            <h1>Recommendations for you</h1>
     
             <div id="tracks">
                 {% for i in songs %}

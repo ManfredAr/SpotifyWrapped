@@ -7,7 +7,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   const iframe = document.createElement('iframe');
   iframe.title = 'Spotify Playlist Embed';
   iframe.src = `https://open.spotify.com/embed/playlist/${playlistUri}`;
-  iframe.width = '100%';
+  iframe.width = '350px';
   iframe.height = '380'; // Adjust the height as needed
   iframe.frameBorder = '0';
   iframe.allow = 'encrypted-media';
