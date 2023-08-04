@@ -43,17 +43,16 @@ class artists:
         for artist in artists:
             artist_info = {
                 "name": artist["name"],
-                "image": artist["images"][0]["url"],
+                "image": artist["images"][1]["url"],
                 "url":artist["external_urls"]['spotify']
             }
+            print(artist["images"][1])
             singer.append(artist_info)
         
 
         if request.method == "GET":
-            print(singer)
             return render(request, 'spotify/artist.html', {'artists':singer})
         elif request.method == "POST":
-            print(singer)
             return JsonResponse({'artists': singer});
         else:
             return artists

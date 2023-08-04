@@ -42,7 +42,7 @@ class album:
         for track in top_tracks:
             track_info = {
                 "artist": track["artists"][0]["name"],
-                "image": track["album"]["images"][0]["url"],
+                "image": track["album"]["images"][1]["url"],
                 "album": track["album"]["name"],
                 "release": track["album"]["release_date"],
                 "link": track["album"]["external_urls"]['spotify']
