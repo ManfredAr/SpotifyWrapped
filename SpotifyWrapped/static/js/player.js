@@ -1,16 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
+window.onSpotifyWebPlaybackSDKReady = () => {
   const playlistDiv = document.getElementById('playlist_uri');
   const playlistUri = playlistDiv.getAttribute('data-playlist-uri');
 
-  const iframe = document.createElement('iframe');
-  iframe.title = 'Spotify Embed: Recommendation Playlist';
-  iframe.src = `https://open.spotify.com/embed/playlist/${playlistUri}?utm_source=generator&theme=0`;
-  iframe.width = '100%';
-  iframe.height = '100%';
-  iframe.style.minHeight = '360px';
-  iframe.frameBorder = '0';
-  iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
-  iframe.loading = 'lazy';
+  const spotifyEmbedContainer = document.getElementById('playlist_uri');
 
-  document.getElementById('embed-iframe').appendChild(iframe);
-});
+  const iframe = document.createElement('iframe');
+  iframe.title = 'Spotify Playlist Embed';
+  iframe.src = `https://open.spotify.com/embed/playlist/${playlistUri}`;
+  iframe.width = '100%';
+  iframe.height = '380'; // Adjust the height as needed
+  iframe.frameBorder = '0';
+  iframe.allow = 'encrypted-media';
+
+  spotifyEmbedContainer.appendChild(iframe);
+};

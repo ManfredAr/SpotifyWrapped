@@ -4,12 +4,14 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Feature-Policy" content="encrypted-media 'self' https://open.spotify.com">
+  
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/base.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="{% static 'js/base.js' %}"></script>
   {% block style %} {% endblock %}
 
   <title>{% block title %}HomePage{% endblock %}</title>
@@ -18,34 +20,39 @@
 
 <body class="bg">
     <div class="wrapper">
-        <div class="sidebar">
-            <ul>
-                <li>                    
-                    <a href="/tracks/">
-                        <span class="item">Tracks</span>
-                    </a>
-                </li>
-                <li>                    
-                    <a href="/artist/">
-                        <span class="item">Artists</span>
-                    </a>
-                </li>
-                <li>                    
-                    <a href="/album/">
-                        <span class="item">Albums</span>
-                    </a>
-                </li>
-                <li>                    
-                    <a href="/genre/">
-                        <span class="item">Genres</span>
-                    </a>
-                </li>
-                <li>                    
-                    <a href="/recommendation/">
-                        <span class="item">Recommendations</span>
-                    </a>
-                </li>
-            </ul>
+        <div class="sidebar" id="sidebar">
+            <div class="icon" id="sidebar-icon">
+                <i class="fa fa-fw fa-home"></i>
+            </div>
+            <div class="bar-content">
+                <ul>
+                    <li>                    
+                        <a href="/tracks/">
+                            <span class="item">Tracks</span>
+                        </a>
+                    </li>
+                    <li>                    
+                        <a href="/artist/">
+                            <span class="item">Artists</span>
+                        </a>
+                    </li>
+                    <li>                    
+                        <a href="/album/">
+                            <span class="item">Albums</span>
+                        </a>
+                    </li>
+                    <li>                    
+                        <a href="/genre/">
+                            <span class="item">Genres</span>
+                        </a>
+                    </li>
+                    <li>                    
+                        <a href="/recommendation/">
+                            <span class="item">Recommendations</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="main">
             <div class="content">

@@ -45,7 +45,7 @@ class album:
                 "image": track["album"]["images"][0]["url"],
                 "album": track["album"]["name"],
                 "release": track["album"]["release_date"],
-                "link": track["album"]["external_urls"]
+                "link": track["album"]["external_urls"]['spotify']
             }
             tracks.append(track_info)
             

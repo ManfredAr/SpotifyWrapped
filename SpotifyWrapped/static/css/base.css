@@ -54,6 +54,9 @@ ul {
 }
 
 body {
+  width: fit-content;
+  height: fit-content;
+  background-repeat: no-repeat;
   background-image: linear-gradient(to right, #a3ffbd, #42c12d);
 }
 
@@ -92,4 +95,49 @@ body {
     .player-container {
         margin-top: 40px; /* Increase the margin between the recommended songs and the player */
     }
+}
+
+
+@media (max-width: 768px) {
+  .track {
+    font-size: 16px;
+  }
+
+  .sidebar {
+    width: 60px;
+  }
+
+  .icon {
+    color: white;
+    width: 50px;
+    height: 50px;
+  }
+
+  .icon i.fa {
+    font-size: 40px;
+  }
+
+  .bar-content {
+    visibility: hidden;
+  }
+
+  .sidebar.expanded {
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #333; /* Set your desired background color */
+    color: white;
+    z-index: 2; /* Ensure the sidebar appears above other content */
+    transition: width 0.3s;
+  }
+  
+  .bar-content.visible {
+    visibility: visible;
+  }
+
+  .icon.shift {
+    margin-left: 20px;
+  }
 }

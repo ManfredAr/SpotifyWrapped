@@ -44,7 +44,7 @@ class artists:
             artist_info = {
                 "name": artist["name"],
                 "image": artist["images"][0]["url"],
-                "url":artist["external_urls"]
+                "url":artist["external_urls"]['spotify']
             }
             singer.append(artist_info)
         
