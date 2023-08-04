@@ -72,6 +72,10 @@ body {
   
 }
 
+  .fa-home {
+    color: rgb(5, 68, 104);
+  }
+
 .track {
   margin-top: 10px;
 }
@@ -110,6 +114,11 @@ body {
 
 
 @media (max-width: 768px) {
+
+  .fa-home {
+    color: rgb(255 255 255);
+  }
+
   .track {
     font-size: 16px;
   }
@@ -119,7 +128,6 @@ body {
   }
 
   .icon {
-    color: white;
     width: 50px;
     height: 50px;
   }
