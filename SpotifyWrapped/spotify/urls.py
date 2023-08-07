@@ -10,4 +10,5 @@ urlpatterns = [
     path('artist/', views.artist),
     path('genre/', views.genre),
     path('recommendation/', views.recommendation),
+    path('logout/', views.logout),
 ]

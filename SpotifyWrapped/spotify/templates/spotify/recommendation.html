@@ -3,7 +3,6 @@
 
 {% block style %} 
 <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/rec.css' %}"> 
-<script src="{% static 'js/player.js' %}"></script>
 {% endblock %}
 
 {% block header %}
@@ -11,11 +10,10 @@
 {% endblock %}
 
 {% block content %}
+<br/><p class="h2"> A playlist has been created for you with the following songs. </p><br/>
+
     <div class="player-container">
-        <script src="https://sdk.scdn.co/spotify-player.js" async></script>
-        <div id="playlist_uri" data-playlist-uri="{{ playlist_uri }}"></div>
-        <div class="track">
-    
+        <div class="track">    
             <div id="tracks">
                 {% for i in songs %}
                     <div class="track">

@@ -15,6 +15,9 @@ class genres:
          # Get the access token from the session
         access_token = request.session.get("access_token")
 
+        if (not access_token):
+            return HttpResponseRedirect('/home')
+
         # Create a Spotipy client using the access token
         sp = spotipy.Spotify(auth=access_token)
 

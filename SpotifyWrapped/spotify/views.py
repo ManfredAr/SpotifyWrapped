@@ -58,4 +58,9 @@ def genre(request):
 
 def recommendation(request):
     return recommendations.getRecommendation(request)
+
+def logout(request):
+    request.session.clear()
+    request.session.flush()
+    return HttpResponseRedirect('https://www.spotify.com/logout/')
     

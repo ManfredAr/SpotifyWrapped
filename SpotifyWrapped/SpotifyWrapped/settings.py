@@ -143,6 +143,8 @@ STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
+SESSION_COOKIE_SAMESITE = 'Lax'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
